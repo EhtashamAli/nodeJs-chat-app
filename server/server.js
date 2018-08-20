@@ -1,10 +1,12 @@
 const http = require('http');
-const app = require('./app');
+const express = require ('express');
+const path = require('path');
+const app = express();
+
 const port = 3000 || process.env.PORT;
 
-const server = http.createServer(app);
+app.use(express.static(path.join(__dirname, '/../public')));
 
-server.listen(port , () => {
+app.listen(port , () => {
   console.log(port);
 });
-  
